@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Animation Site</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      cursor: none;
+      text-align: center;
+    }
+    h1 {
+      color: #2e8b57;
+      margin-top: 100px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #2e8b57;
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ My Animation Site ✨</h1>
+  <p>Cursor animation is working!</p>
+  <div class="cursor" id="cursor"></div>
+  <script>
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.left = e.pageX + "px";
+      cursor.style.top = e.pageY + "px";
+    });
+  </script>
+</body>
+</html>
